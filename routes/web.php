@@ -21,10 +21,20 @@ Route::get('/inertia-test', function () {
     return Inertia::render('InertiaTest');
 });
 
+Route::get('/component-test', function () {
+    return Inertia::render('ComponentTest');
+});
+
 Route::get('/inertia/index', [InertiaController::class, 'index'])
 ->name('inertia.index');
 Route::get('/inertia-show/{id}', [InertiaController::class, 'show'])
 ->name('inertia.show');
+Route::get('/inertia-create', [InertiaController::class, 'create'])
+->name('inertia.create');
+Route::post('/inertia-store', [InertiaController::class, 'store'])
+->name('inertia.store');
+Route::delete('/inertia-delete/{id}', [InertiaController::class, 'delete'])
+->name('inertia.delete');
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
